@@ -19,12 +19,12 @@ const App = () => {
         <Match exactly pattern='/' component={(props) => {
           return (
             <StyleRoot>
-              <Player {...props} />
+              <Info {...props} />
             </StyleRoot>
           )
         }}
         />
-        <Match
+        {/*<Match
           pattern='/info'
           component={(props) => {
             return (
@@ -41,7 +41,7 @@ const App = () => {
             const shows = preload.shows.filter((show) => props.params.id === show.imdbID)
             return <Details show={shows[0]} {...props} />
           }}
-        />
+        />*/}
       </div>
     </Provider>
   )

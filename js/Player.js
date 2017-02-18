@@ -2,16 +2,11 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router'
 import ReactPlayer from 'react-player'
-import { setSearchTerm } from './actionCreators'
+// import { setSearchTerm } from './actionCreators'
 import io from 'socket.io-client'
 import Radium, { StyleRoot } from 'radium'
-import IconButton from 'material-ui/IconButton';
-import ActionHome from 'material-ui/svg-icons/action/home';
-import getMuiTheme from 'material-ui/styles/getMuiTheme';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import {green100, green500, green700} from 'material-ui/styles/colors';
 import Helmet from "react-helmet"
-import axios from 'axios'
+// import axios from 'axios'
 import infoStyle from './style/info'
 
 const { string, func, object } = React.PropTypes
@@ -34,9 +29,6 @@ class Player extends React.Component {
     socket.on('news', function (data) {
       this.setState({ song: data.hello })
     }.bind(this))
-    axios.get('/test', function() {
-      console.log(12345)
-    })
   }
 
   render () {
