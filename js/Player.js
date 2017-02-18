@@ -12,6 +12,7 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import {green100, green500, green700} from 'material-ui/styles/colors';
 import Helmet from "react-helmet"
 import axios from 'axios'
+import infoStyle from './style/info'
 
 const { string, func, object } = React.PropTypes
 
@@ -85,7 +86,6 @@ class Player extends React.Component {
 
     }
     return (
-      <div style={{display: 'flex', justifyContent: 'center', flexDirection: 'column', width: '400px', height: '400px'}} className='main'>
         <StyleRoot>
           <Helmet
             title='Suburb / Russia'
@@ -96,20 +96,23 @@ class Player extends React.Component {
             ]}
 
           />
-          <div style={style.button} onClick={this.togglePlay}>
-            {element}
-          </div>
-          <ReactPlayer url='http://46.32.69.199:8000/live96'
-            playing={this.state.playing}
-            width={0}
-            height={0}
-          />
-          <div style={style.song} className="song-name">
-            {this.state.song}
+          <div style={infoStyle.container}>
+            <div style={infoStyle.button} onClick={this.togglePlay}>
+              {element}
+            </div>
+            <ReactPlayer url='http://46.32.69.199:8000/live96'
+              playing={this.state.playing}
+              width={0}
+              height={0}
+            />
+            <div style={infoStyle.song} className="song-name">
+              {this.state.song}
+            </div>
+            <div style={{ position: 'absolute', bottom: '30px', right: '30px' }}>
+              <Link style={{fontSize: '50px', color: 'white' }} to='/info'>Info</Link>
+            </div>
           </div>
         </StyleRoot>
-        <Link to='/info'>Info</Link>
-      </div>
     )
   }
 }

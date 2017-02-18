@@ -6,7 +6,7 @@ module.exports = {
   devtool: 'eval',
   output: {
     path: path.join(__dirname, '/public'),
-    filename: 'bundle.js'
+    filename: 'bundle24.js'
   },
   devServer: {
     publicPath: '/public/',

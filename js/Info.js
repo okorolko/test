@@ -56,38 +56,22 @@ class Info extends React.Component {
           <span style={style.text}>Если вы хотите, чтобы ваша музыка играла на Suburb/Russia, отправьте нам свой материал на почту suburbrussia@gmail.com с пометкой в теме письма #Youlikeit (в виде #youlikeit#название ) и тремя хештегами (в самом письме) характеризующими ваш стиль. В скором времени ваша музыка вполне возможно будет в эфире.</span>
         </div>
         <div style={style.footer}>
-        <div style={style.footLogo}>
-          <img style={{ maxWidth: '400px', width: 'auto', height: 'auto', alignSelf: 'center' }} src="/public/img/sbrb.png" alt="" />
+          <div style={style.footerTop}>
+            <div style={style.footLogo}>
+              <img style={{ maxWidth: '400px', width: '400px', height: 'auto', alignSelf: 'center' }} src="/public/img/sbrb.png" alt="" />
+            </div>
+            <span style={style.footerText}> © Suburb/Russia. Потоковое онлайн-вещание. Использование материалов Suburb/Russia разрешено только с предварительного согласия правообладателей. Все права на музыкальные произведения принадлежат их авторам. Возможно содержание контента, не предназначенного для лиц младше 16 лет.
+            </span>
+          </div>
+          <div style={style.footerBottom}>
+            <span style={style.footerRights}>© All Right Reserved. SuburbRussia.</span>
+            <span style={style.iconContainer}>
+              <img src="../public/img/vk.svg" style={style.socialIcons}></img>
+              <img src="../public/img/fb.svg" style={style.socialIcons}></img>
+              <img src="../public/img/soundcloud.svg" style={style.socialIcons}></img>
+            </span>
+          </div>
         </div>
-        <span style={style.footerText}> © Suburb/Russia. Потоковое онлайн-вещание. Использование материалов Suburb/Russia разрешено только с предварительного согласия правообладателей. Все права на музыкальные произведения принадлежат их авторам. Возможно содержание контента, не предназначенного для лиц младше 16 лет.
-        </span>
-        <div style={style.footerBottom}>
-        <span>© All Right Reserved. SuburbRussia.</span>
-
-
-
-
-
-
-
-        <span style={style.iconContainer}>
-          <img src="../public/img/vk.svg" style={style.socialIcons}></img>
-          <img src="../public/img/fb.svg" style={style.socialIcons}></img>
-          <img src="../public/img/soundcloud.svg" style={style.socialIcons}></img>
-        </span>
-
-
-
-
-
-
-
-
-
-
-        </div>
-        </div>
-
       </StyleRoot>
     )
   }

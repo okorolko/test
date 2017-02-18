@@ -15,7 +15,7 @@ import Helmet from "react-helmet"
 const App = () => {
   return (
     <Provider store={store}>
-      <div className='app'>
+      <div>
         <Match exactly pattern='/' component={(props) => {
           return (
             <StyleRoot>
