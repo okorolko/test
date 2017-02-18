@@ -58,9 +58,11 @@ class Info extends React.Component {
         <div style={style.footer}>
           <div style={style.footerTop}>
             <div style={style.footLogo}>
-              <img style={{ maxWidth: '400px', width: '400px', height: 'auto', alignSelf: 'center' }} src="/public/img/sbrb.png" alt="" />
+              <img style={{ maxWidth: '400px', width: '200px', height: 'auto', alignSelf: 'center' }} src="/public/img/sbrb.png" alt="" />
             </div>
-            <span style={style.footerText}> © Suburb/Russia. Потоковое онлайн-вещание. Использование материалов Suburb/Russia разрешено только с предварительного согласия правообладателей. Все права на музыкальные произведения принадлежат их авторам. Возможно содержание контента, не предназначенного для лиц младше 16 лет.
+            <span style={style.footerText}> © Suburb/Russia. Потоковое онлайн-вещание.
+            </span>
+             <span style={style.footerText}>Использование материалов Suburb/Russia разрешено только с предварительного согласия правообладателей. Все права на музыкальные произведения принадлежат их авторам. Возможно содержание контента, не предназначенного для лиц младше 16 лет.
             </span>
           </div>
           <div style={style.footerBottom}>

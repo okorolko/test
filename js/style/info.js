@@ -144,8 +144,8 @@ export default {
       '@media (min-width: 1000px) and (orientation: landscape)': {
         display: 'inline-block',
         width: '80vw',
-        fontSize: '20px',
-        lineHeight: '40px'
+        fontSize: '16px',
+        lineHeight: '35px'
       }
     },
     footerTop: {
