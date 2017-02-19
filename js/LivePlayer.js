@@ -41,7 +41,7 @@ class LivePlayer extends React.Component {
 
     return (
       <StyleRoot>
-        <div style={{ display: 'flex', width: '100vw', justifyContent: 'flex-end', alignItems: 'center', position: 'absolute', left: 0, top: 0 }}>
+        <div style={{ display: 'flex', width: '100vw', justifyContent: 'flex-start', alignItems: 'center', position: 'absolute', left: 0, top: 0 }}>
           <Players />
           <div style={style.song}>
             {this.state.song}

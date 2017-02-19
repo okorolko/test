@@ -5,6 +5,11 @@ export default {
       display: 'flex',
       justifyContent: 'center'
     },
+    '@media (min-width: 600px) and (orientation: landscape)': {
+      height: '60px',
+      display: 'flex',
+      justifyContent: 'center'
+    },
     '@media (min-width: 1000px) and (orientation: landscape)': {
       height: '60px',
       display: 'flex',
@@ -19,6 +24,16 @@ export default {
       display: 'flex',
       justifyContent: 'flex-start',
       flexWrap: 'wrap',
+    },
+    '@media (min-width: 700px) and (orientation: landscape)': {
+      color: 'white',
+      fontSize: '16px',
+      width: '100%',
+      left: '50%',
+      display: 'flex',
+      fontWeght: '100',
+      paddingLeft: '10px'
+      // justifyContent: 'center'
     },
     '@media (min-width: 1000px) and (orientation: landscape)': {
       color: 'white',

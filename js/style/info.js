@@ -11,7 +11,7 @@ export default {
       backgroundSize: 'cover',
       backgroundPosition: 'center',
     },
-    '@media (min-width: 500px)': {
+    '@media (min-width: 500px) and (orientation: landscape)': {
       display: 'flex',
       flexDirection: 'column',
       justifyContent: 'center',
@@ -246,12 +246,12 @@ export default {
     },
   },
   button: {
-      '@media (min-width: 320px) and (orientation: portrait)': {
+    '@media (min-width: 320px) and (orientation: portrait)': {
         height: '300px',
         display: 'flex',
         justifyContent: 'center'
     },
-      '@media (min-width: 500px) and (orientation: landscape)': {
+    '@media (min-width: 700px) and (orientation: landscape)': {
         height: '70px',
         display: 'flex',
         justifyContent: 'center'
