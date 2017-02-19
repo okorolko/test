@@ -8,54 +8,12 @@ const ServerRouter = ReactRouter.ServerRouter
 const _ = require('lodash')
 const fs = require('fs')
 const co = require('co')
-// const PORT = 7000
 const baseTemplate = fs.readFileSync('./index.html')
 const template = _.template(baseTemplate)
 const App = require('./js/App').default
 const Helmet = require('react-helmet')
-// const http = require('http')
-// const app = express()
-// const server = http.createServer(app)
-// const io = require('socket.io')(server)
-
-// //-------
-
-// io.on('connection', function(socket) {
-//   console.log('connect')
-//   socket.on('action', (action) => {
-//     console.log(action);
-//   });
-// });
-
-// //--------
-
-// app.use('/public', express.static('./public'))
-
-
-
-
-// app.use((req, res) => {
-//   const context = ReactRouter.createServerRenderContext()
-//   const body = ReactDOMServer.renderToString(
-//     React.createElement(ServerRouter, {location: req.url, context: context},
-//       React.createElement(App)
-//     )
-//   )
-
-//   res.write(template({body: body}))
-//   res.end()
-// })
-
-
-// console.log('listening on port', PORT)
-// app.listen(PORT)
-
-const pic = 'https://images-na.ssl-images-amazon.com/images/M/MV5BMDdmZGU3NDQtY2E5My00ZTliLWIzOTUtMTY4ZGI1YjdiNjk3XkEyXkFqcGdeQXVyNTA4NzY1MzY@._V1_SX300.jpg'
-
-
 
 const path = require('path');
-// const _ = require('lodash');
 const express = require('express');
 const app = express();
 const server = require('http').Server(app);
@@ -65,7 +23,6 @@ const cheerio = require('cheerio');
 
 
 
-// app.use(express.static(path.join(__dirname, './')));
 app.use('/public', express.static('./public'))
 
 app.use(function(req, res, next) {
@@ -76,32 +33,36 @@ app.use(function(req, res, next) {
 })
 
 app.use((req, res) => {
-  const context = ReactRouter.createServerRenderContext()
-  const body = ReactDOMServer.renderToString(
-    React.createElement(ServerRouter, { location: req.url, context: context, radiumConfig: { userAgent: req.headers['user-agent'] }, loh: 'ya' },
-      // React.createElement(App)
-      React.createElement(
-        App,
-        { radiumConfig: { userAgent: req.headers['user-agent']
-         },
-         fuck: 'ahahahahah123123123'
-      })
+  co(function* () {
+    const song = yield requestCurrentSong()
+
+    const context = ReactRouter.createServerRenderContext()
+    const body = ReactDOMServer.renderToString(
+      React.createElement(ServerRouter, { location: req.url, context: context, radiumConfig: { userAgent: req.headers['user-agent'] }, loh: 'ya' },
+        // React.createElement(App)
+        React.createElement(
+          App,
+          { radiumConfig: { userAgent: req.headers['user-agent']
+          },
+          song,
+        })
+      )
     )
-  )
 
-let head = Helmet.rewind()
+  let head = Helmet.rewind()
 
-const initialState = { fuck: 'success' }
+  const initialState = { fuck: 'success' }
 
 
-const html = `<!DOCTYPE html><html lang="en">
-<head><meta charset="UTF-8">${head.title.toString()}${head.meta.toString()}${head.link.toString()}<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500&amp;subset=cyrillic-ext" rel="stylesheet"><link rel="stylesheet" href="/public/normalize.css"><link rel="stylesheet" href="/public/style1.css"></head><body><div id="app">${body}</div>
-<script>window.__INITIAL_STATE__ = ${JSON.stringify(initialState)}</script>
-<script src="/public/bundle24.js"></script></body></html>`
+  const html = `<!DOCTYPE html><html lang="en">
+  <head><meta charset="UTF-8">${head.title.toString()}${head.meta.toString()}${head.link.toString()}<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500&amp;subset=cyrillic-ext" rel="stylesheet"><link rel="stylesheet" href="/public/normalize.css"><link rel="stylesheet" href="/public/style1.css"></head><body><div id="app">${body}</div>
+  <script>window.__INITIAL_STATE__ = ${JSON.stringify(initialState)}</script>
+  <script src="/public/bundle24.js"></script></body></html>`
 
-  // res.write(template({ body: body }))
-  res.write(html)
-  res.end()
+    // res.write(template({ body: body }))
+    res.write(html)
+    res.end()
+  })
 })
 
 
@@ -142,7 +103,7 @@ const emitter = co.wrap(function* (socket, diffCheck) {
 io.on('connection', function (socket) {
   const diffCheck = checkDiff()
   emitter(socket, diffCheck)
-  setInterval(() => emitter(socket, diffCheck), 1000)
+  setInterval(() => emitter(socket, diffCheck), 3000)
 })
 
 
