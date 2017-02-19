@@ -12,6 +12,8 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import { green100, green500, green700 } from 'material-ui/styles/colors';
 import Helmet from "react-helmet"
 import axios from 'axios'
+
+import AudioPlayer from './Player/AudioPlayer'
 import style from './style/liveplayer'
 
 const { string, func, object } = React.PropTypes
@@ -30,13 +32,8 @@ class LivePlayer extends React.Component {
     this.setState({ playing: !this.state.playing })
   }
   componentDidMount () {
-    console.log('tttttt');
     // const socket = io('http://localhost:5050')
-        const socket = io()
-
-    socket.on('connect', function () {
-      console.log('connnnnnnected');
-    })
+    const socket = io()
     socket.on('news', function (data) {
       this.setState({ song: data.hello })
     }.bind(this))
@@ -56,12 +53,19 @@ class LivePlayer extends React.Component {
           </svg>)
     }
 
+    var playlist =
+  [{ url: 'http://46.32.69.199:8000/live96',
+     displayText: 'Track 1 by Some Artist' },
+   { url: 'audio/track2.mp3',
+     displayText: 'Some Other Artist - Track 2' }];
+
     return (
       <StyleRoot>
           <div style={{ display: 'flex', width: '100vw', justifyContent: 'flex-end', alignItems: 'center', position: 'absolute', left: 0, top: 0 }}>
-            <div style={style.button} onClick={this.togglePlay}>
+            {/*<div style={style.button} onClick={this.togglePlay}>
               {element}
-            </div>
+            </div>*/}
+            <AudioPlayer playlist={playlist} hideBackSkip />
             <div style={style.song}>
               {this.state.song}
             </div>
@@ -71,6 +75,7 @@ class LivePlayer extends React.Component {
           playing={this.state.playing}
           width={0}
           height={0}
+          hidden
         />
       </StyleRoot>
     )
