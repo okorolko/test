@@ -30,7 +30,13 @@ class LivePlayer extends React.Component {
     this.setState({ playing: !this.state.playing })
   }
   componentDidMount () {
-    const socket = io('http://localhost:5050')
+    console.log('tttttt');
+    // const socket = io('http://localhost:5050')
+        const socket = io()
+
+    socket.on('connect', function () {
+      console.log('connnnnnnected');
+    })
     socket.on('news', function (data) {
       this.setState({ song: data.hello })
     }.bind(this))
