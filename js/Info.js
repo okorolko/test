@@ -74,9 +74,15 @@ class Info extends React.Component {
           <div style={style.footerBottom}>
             <span style={style.footerRights}>© All Right Reserved. SuburbRussia.</span>
             <span style={style.iconContainer}>
-              <img src='../public/img/vk.svg' style={style.socialIcons}></img>
-              <img src='../public/img/fb.svg' style={style.socialIcons}></img>
-              <img src='../public/img/soundcloud.svg' style={style.socialIcons}></img>
+              <a href="https://vk.com/suburbrussia">
+                <img src='../public/img/vk.svg' style={style.socialIcons} />
+              </a>
+              <a href="https://facebook.com/suburbrussia/">
+                <img src='../public/img/fb.svg' style={style.socialIcons} />
+              </a>
+              <a href="https://soundcloud.com/suburbrussia">
+                <img src='../public/img/soundcloud.svg' style={style.socialIcons} />
+              </a>
             </span>
           </div>
         </div>

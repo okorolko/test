@@ -17,6 +17,16 @@ export default {
     }
   },
   song: {
+    '@media (min-width: 790px) and (orientation: portrait)': {
+      color: 'yellow',
+      fontSize: '16px',
+      width: '100%',
+      left: '50%',
+      display: 'flex',
+      fontWeght: '100',
+      paddingLeft: '10px'
+      // justifyContent: 'center'
+    },
     '@media (min-width: 320px) and (orientation: portrait)': {
       fontSize: '33px',
       color: 'white',
@@ -25,6 +35,7 @@ export default {
       justifyContent: 'flex-start',
       flexWrap: 'wrap',
     },
+
     '@media (min-width: 700px) and (orientation: landscape)': {
       color: 'white',
       fontSize: '16px',

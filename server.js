@@ -55,7 +55,10 @@ app.use((req, res) => {
 
 
   const html = `<!DOCTYPE html><html lang="en">
-  <head><meta charset="UTF-8">${head.title.toString()}${head.meta.toString()}${head.link.toString()}<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500&amp;subset=cyrillic-ext" rel="stylesheet"><link rel="stylesheet" href="/public/normalize.css"><link rel="stylesheet" href="/public/style1.css"></head><body><div id="app">${body}</div>
+  <head><meta charset="UTF-8">${head.title.toString()}${head.meta.toString()}${head.link.toString()}<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500&amp;subset=cyrillic-ext" rel="stylesheet"><link rel="stylesheet" href="/public/normalize.css">
+  <meta property="og:url" content="http://suburbrussia.com">
+  <link rel="shortcut icon" href="/public/img/favicon.png">
+  <link rel="stylesheet" href="/public/style1.css"></head><body><div id="app">${body}</div>
   <script>window.__INITIAL_STATE__ = ${JSON.stringify(initialState)}</script>
   <script src="/public/bundle24.js"></script></body></html>`
 
