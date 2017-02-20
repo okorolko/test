@@ -1,5 +1,17 @@
+import Radium, { StyleRoot } from 'radium'
+import { fadeIn } from 'react-animations'
+
+// var pulseKeyframes = Radium.keyframes({
+//   '0%': {opacitu: '0'},
+//   '100%': {opacity: '1'},
+// }, 'pulse');
 
 export default {
+  // bounce: {
+  //   animation: 'x 2s',
+  //   color: 'white',
+  //   animationName: Radium.keyframes(fadeIn, 'fade-in'),
+  // },
   container: {
     '@media (min-width: 320px) and (orientation: portrait)': {
       height: '100vh',
@@ -20,6 +32,9 @@ export default {
       backgroundSize: 'cover',
       backgroundPosition: 'center',
       height: '100vh',
+      animation: 'x 3s',
+      color: 'white',
+      animationName: Radium.keyframes(fadeIn, 'fade-in')
     },
   },
   header: {
@@ -119,7 +134,8 @@ export default {
   footerText: {
     '@media (min-width: 300px) and (orientation: portrait)': {
       display: 'inline-block',
-      fontSize: '28px',
+      fontSize: '32px',
+      color: 'gray',
       lineHeight: '50px',
       width: '80vw',
       padding: '0 0 30px 0'
